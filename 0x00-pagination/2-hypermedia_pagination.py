@@ -57,7 +57,6 @@ class Server:
                         ) % page_size == 0 else round(
                                 (len(dataset) / page_size) + 0.5
                                 )
-        print(total)
         return {
                 "page_size": page_size,
                 "page": page,
