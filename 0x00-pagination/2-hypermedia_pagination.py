@@ -46,22 +46,15 @@ class Server:
         """method that returns a dictionary
             containing the following key-value pairs
         """
-        start, end = index_range(page, page_size)
         _data: List[List] = self.get_page(page, page_size)
-        dataset = self.dataset()
+        _dataset: List[List]= self.dataset()
+        total = math.ceil(len(_dataset) / page_size)
 
-        total = round(
-                (len(dataset) // page_size)
-                ) if len(
-                        dataset
-                        ) % page_size == 0 else round(
-                                (len(dataset) / page_size) + 0.5
-                                )
         return {
                 "page_size": page_size,
                 "page": page,
                 "data": _data,
-                "next_page": None if end > total else page + 1,
-                "prev_page": None if page == 1 else page - 1,
+                "next_page": None if page > total else page + 1,
+                "prev_page": None if page < 1 else page - 1,
                 "total_pages": total
                 }
