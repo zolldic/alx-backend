@@ -47,11 +47,11 @@ class Server:
             containing the following key-value pairs
         """
         _data: List[List] = self.get_page(page, page_size)
-        _dataset: List[List]= self.dataset()
+        _dataset: List[List] = self.dataset()
         total = math.ceil(len(_dataset) / page_size)
 
         return {
-                "page_size": page_size,
+                "page_size": len(_data),
                 "page": page,
                 "data": _data,
                 "next_page": None if page > total else page + 1,
