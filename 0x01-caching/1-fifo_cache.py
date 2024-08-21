@@ -51,4 +51,4 @@ class FIFOCache(BaseCaching):
                 The item stored in the cache with the given key,
                     or None if not found.
         """
-        super.get(key)
+        super().get(key)
