@@ -51,4 +51,8 @@ class FIFOCache(BaseCaching):
                 The item stored in the cache with the given key,
                     or None if not found.
         """
-        super().get(key)
+        try:
+            value = self.cache_data[key]
+        except KeyError:
+            return None
+        return value
