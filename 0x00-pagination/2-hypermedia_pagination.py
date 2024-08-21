@@ -2,7 +2,7 @@
 """ 2. Hypermedia pagination"""
 import csv
 import math
-from typing import List
+from typing import List, Dict
 
 
 def index_range(page: int, page_size: int) -> tuple:
@@ -42,7 +42,7 @@ class Server:
         start, end = index_range(page, page_size)
         return _data[start:end]
 
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
         """method that returns a dictionary
             containing the following key-value pairs
         """
