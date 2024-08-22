@@ -31,13 +31,13 @@ class LIFOCache(BaseCaching):
                 key (str): The key to use for storing the item.
                 item (any): The item to store in the cache.
         """
-        if key:
+        if key and item:
             self.cache_data[key] = item
 
-        if len(self.cache_data) > self.MAX_ITEMS:
-            last_key = list(self.cache_data)[-2]
-            del self.cache_data[last_key]
-            print(f"DISCARD: {last_key}")
+            if len(self.cache_data) > self.MAX_ITEMS:
+                last_key = list(self.cache_data)[-2]
+                del self.cache_data[last_key]
+                print(f"DISCARD: {last_key}")
 
     def get(self, key):
         """Retrieves an item from the cache using the given key.
