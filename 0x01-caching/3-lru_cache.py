@@ -20,16 +20,17 @@ class LRUCache(BaseCaching):
                 key (any): The key to store.
                 item (any): The value to associate with the key.
         """
-        if key in self.cache_data:
-            self.order.remove(key)
+        if key and item:
+            if key in self.cache_data:
+                self.order.remove(key)
 
-        self.cache_data[key] = item
-        self.order.append(key)
+            self.cache_data[key] = item
+            self.order.append(key)
 
-        if len(self.cache_data) > self.MAX_ITEMS:
-            least = self.order.pop(0)
-            del self.cache_data[least]
-            print(f"DISCARD: {least}")
+            if len(self.cache_data) > self.MAX_ITEMS:
+                least = self.order.pop(0)
+                del self.cache_data[least]
+                print(f"DISCARD: {least}")
 
     def get(self, key):
         """Retrieves an item from the cache using the given key.
