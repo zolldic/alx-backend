@@ -1,5 +1,25 @@
 #!/usr/bin/python3
-"""a basic Flask app
+"""A basic Flask application with internationalization
+    support using Flask-Babel.
+
+    This script sets up a Flask web application with localization support.
+    It configures Flask-Babel to handle multiple languages and sets up
+        a basic route for the root URL.
+
+    Modules:
+        - Flask: A web framework for building web applications.
+        - Flask-Babel: An extension for Flask that adds i18n and l10n support.
+
+    Classes:
+        - Config: A configuration class for Flask-Babel settings.
+
+    Functions:
+        - get_locale: Determines the best match
+            for the user's preferred language.
+
+    Routes:
+        - /: Handles requests to the root URL
+            and renders the '2-index.html' template.
 """
 from flask import (
         Flask,
@@ -34,12 +54,12 @@ def index():
 
         This function is invoked when the root URL of
         the application is accessed. It renders and returns
-        the HTML template '1-index.html'.
+        the HTML template '2-index.html'.
 
         Returns:
             str: The rendered HTML template '1-index.html'.
     """
-    return render_template('1-index.html')
+    return render_template('2-index.html')
 
 
 if __name__ == '__main__':
