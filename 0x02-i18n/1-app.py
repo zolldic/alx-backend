@@ -2,6 +2,8 @@
 """a basic Flask app
 """
 from flask import (Flask, render_template)
+from flask_babel import Babel
+
 app = Flask(__name__)
 
 
@@ -16,7 +18,7 @@ app.config.from_object(Config)
 babel = Babel(app)
 
 
-@app.route('/')
+@app.route('/', strict_slashes=False)
 def index():
     """Route handler for the root URL ('/').
 
