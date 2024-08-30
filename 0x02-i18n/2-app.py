@@ -21,11 +21,8 @@
         - /: Handles requests to the root URL
             and renders the '2-index.html' template.
 """
-from flask import (
-        Flask,
-        render_templatei,
-        request
-        )
+from flask import Flask, render_template, request
+
 from flask_babel import Babel
 app = Flask(__name__)
 
